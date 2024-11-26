@@ -1,4 +1,15 @@
-export function FormInput({ label, name, isRequired, type = "text" }) {
+interface formInputProps {
+  label: string;
+  name: string;
+  isRequired: boolean;
+  type?: string;
+}
+export function FormInput({
+  label,
+  name,
+  isRequired,
+  type = "text",
+}: formInputProps) {
   return (
     <div className="flex flex-col gap-1 ">
       <label>{label}</label>
