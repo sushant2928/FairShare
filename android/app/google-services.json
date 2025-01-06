@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "845905024758",
+    "project_id": "fairshare000",
+    "storage_bucket": "fairshare000.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:845905024758:android:f861f2d43254714cb8fed7",
+        "android_client_info": {
+          "package_name": "com.anonymous.fairsharefe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "845905024758-6p7cji0qatpb8maqkgp5u7rhl3ns63vc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.anonymous.fairsharefe",
+            "certificate_hash": "2caa07e9539397b4a0c665504122f382ee3d3f5d"
+          }
+        },
+        {
+          "client_id": "845905024758-5n79kbr7gq0fvv9l5m6mc2okee7q3roo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPXJ0AJAuQG2yAianCIOEk6Z6f56yx7VQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "845905024758-5n79kbr7gq0fvv9l5m6mc2okee7q3roo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "845905024758-hinl90st817mp9ptcul08ld1dj8qoa27.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.anonymous.fairsharefe"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
