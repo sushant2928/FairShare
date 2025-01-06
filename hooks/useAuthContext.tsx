@@ -7,6 +7,11 @@ import { useLoader } from "@/hooks/useLoader";
 import axios from "axios";
 import { UserInfoType } from "@/types";
 import { useAlert } from "./useAlert";
+import {
+  API_FIND_USER_ENDPOINT,
+  API_LOGIN_ENDPOINT,
+  API_REGISTER_ENDPOINT,
+} from "@/constants/API";
 
 export const useAuthContext = () => {
   const [user, setUser] = useState<FirebaseAuthTypes.User | null>(null);
@@ -43,7 +48,7 @@ export const useAuthContext = () => {
       if (token) {
         const { data } = await axios
           .post(
-            "http://localhost:5000/api/auth/register",
+            API_REGISTER_ENDPOINT,
             {
               name,
             },
@@ -76,7 +81,7 @@ export const useAuthContext = () => {
       const token = await getIdToken(res?.user);
       if (token) {
         const { data } = await axios
-          .get("http://localhost:5000/api/auth/login", {
+          .get(API_LOGIN_ENDPOINT, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -112,7 +117,7 @@ export const useAuthContext = () => {
       setIsLoading(true);
       const token = await getIdToken(user as FirebaseAuthTypes.User);
       const { data } = await axios.post(
-        "http://localhost:5000/api/auth/find-user",
+        API_FIND_USER_ENDPOINT,
         {
           findBy,
           value,

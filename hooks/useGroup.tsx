@@ -5,6 +5,7 @@ import { useState } from "react";
 import { GroupType } from "@/types";
 import { useLoader } from "./useLoader";
 import { useAlert } from "./useAlert";
+import { API_GROUP_ENDPOINT } from "@/constants/API";
 
 const useGroup = () => {
   const { user } = useAuth();
@@ -15,7 +16,7 @@ const useGroup = () => {
     try {
       setIsLoading(true);
       const token = await getIdToken(user as FirebaseAuthTypes.User);
-      const { data } = await axios.get("http://localhost:5000/api/group", {
+      const { data } = await axios.get(API_GROUP_ENDPOINT, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -33,7 +34,7 @@ const useGroup = () => {
       setIsLoading(true);
       const token = await getIdToken(user as FirebaseAuthTypes.User);
       await axios.post(
-        "http://localhost:5000/api/group",
+        API_GROUP_ENDPOINT,
         {
           name,
           description,
@@ -57,14 +58,11 @@ const useGroup = () => {
     try {
       setIsLoading(true);
       const token = await getIdToken(user as FirebaseAuthTypes.User);
-      const { data } = await axios.get(
-        `http://localhost:5000/api/group/${groupId}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const { data } = await axios.get(`${API_GROUP_ENDPOINT}/${groupId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       return data;
     } catch (err) {
       showAlert(err?.message);
@@ -78,7 +76,7 @@ const useGroup = () => {
       setIsLoading(true);
       const token = await getIdToken(user as FirebaseAuthTypes.User);
       const { data } = await axios.get(
-        `http://localhost:5000/api/group/${groupId}/members`,
+        `${API_GROUP_ENDPOINT}/${groupId}/members`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -98,7 +96,7 @@ const useGroup = () => {
       setIsLoading(true);
       const token = await getIdToken(user as FirebaseAuthTypes.User);
       const { data } = await axios.post(
-        `http://localhost:5000/api/group/add-user`,
+        `${API_GROUP_ENDPOINT}/add-user`,
         {
           groupId,
           memberIds,

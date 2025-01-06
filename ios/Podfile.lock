@@ -1694,10 +1694,10 @@ PODS:
     - React-perflogger (= 0.76.5)
     - React-utils (= 0.76.5)
   - RecaptchaInterop (100.0.0)
-  - RNFBApp (21.6.1):
+  - RNFBApp (21.6.2):
     - Firebase/CoreOnly (= 11.5.0)
     - React-Core
-  - RNFBAuth (21.6.1):
+  - RNFBAuth (21.6.2):
     - Firebase/Auth (= 11.5.0)
     - React-Core
     - RNFBApp
@@ -2269,8 +2269,8 @@ SPEC CHECKSUMS:
   ReactCodegen: 8d7f9f05befdeb108948bbaa18d149b25a964f72
   ReactCommon: 858d61cce81635d57be89348568b603e838b3cac
   RecaptchaInterop: 7d1a4a01a6b2cb1610a47ef3f85f0c411434cb21
-  RNFBApp: 1de631bffe154f4f8b56f8dbfb13d6305d658e97
-  RNFBAuth: aa53108a283606c560e4380d75d093c35a13d8dd
+  RNFBApp: 5c187f161ac2b1c258c9c099d56bf5cfdb1f0bcb
+  RNFBAuth: dc124c8219a950dc8ca10e6410000898848253ad
   RNGestureHandler: 598e45cedb905b157e9764acbef0b5e365693451
   RNReanimated: 77a04017cdf54b9da500ccefde56d9d15b8ddff6
   RNScreens: 8ae716a7e26b9ecee7f2856e6ff47b8e7e253ee8
@@ -2280,4 +2280,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 1289dcbc270c4f08386f4ff257a7cfadf682f415
 
-COCOAPODS: 1.15.2
+COCOAPODS: 1.16.2
