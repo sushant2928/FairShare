@@ -45,7 +45,6 @@ const useGroup = () => {
           },
         }
       );
-      getGroups();
       showAlert("Group Created!");
     } catch (err) {
       showAlert(err?.message);
@@ -115,6 +114,23 @@ const useGroup = () => {
       setIsLoading(false);
     }
   };
+  const deleteGroup = async (groupId) => {
+    try {
+      setIsLoading(true);
+      const token = await getIdToken(user as FirebaseAuthTypes.User);
+      const { data } = await axios.delete(`${API_GROUP_ENDPOINT}/${groupId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      console.log("🚀 ~ addMembers ~ data:", data);
+      return data;
+    } catch (err) {
+      showAlert(err?.message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return {
     groups,
@@ -123,6 +139,7 @@ const useGroup = () => {
     createGroup,
     getGroupMembers,
     addMembers,
+    deleteGroup,
   };
 };
 export default useGroup;

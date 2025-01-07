@@ -13,22 +13,37 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import Button from "@/components/ui/Button"; // Import the custom button
 import FontAwesome from "@expo/vector-icons/FontAwesome";
+import CreateGroupModal from "@/components/ui/CreateGroupModal";
 
 type ItemProps = { item: { name: string; id: string } };
 
 const Dashboard = () => {
   const { logout } = useAuth();
-  const { groups, createGroup, getGroups } = useGroup();
+  const { groups, deleteGroup, getGroups } = useGroup();
   const { userInfo } = useAuth();
-
+  const [showCreateGroupModal, setShowCreateGroupModal] = useState(false);
   useEffect(() => {
     getGroups();
   }, []);
 
   const onCreateGroupPress = () => {
-    Alert.prompt("Group Name", "", (name) => {
-      createGroup(name, "");
-    });
+    setShowCreateGroupModal(true);
+  };
+
+  const showDeleteGroupAlert = (groupId) => {
+    Alert.alert("Delete Group", "Do you want to delete the group?", [
+      {
+        text: "Yes",
+        onPress: () => {
+          deleteGroup(groupId);
+        },
+        style: "destructive",
+      },
+      {
+        text: "No",
+        style: "cancel",
+      },
+    ]);
   };
 
   const Item = ({ item }: ItemProps) => (
@@ -40,7 +55,10 @@ const Dashboard = () => {
         params: { id: item.id, name: item.name },
       }}
     >
-      <Pressable className="flex flex-row items-center justify-between px-4 py-3 rounded-lg border my-2 shadow-sm bg-white">
+      <Pressable
+        className="flex flex-row items-center justify-between px-4 py-3 rounded-lg border my-2 shadow-sm bg-white"
+        onLongPress={() => showDeleteGroupAlert(item.id)}
+      >
         <Text className="text-lg font-medium">{item.name}</Text>
         <View className="flex flex-row items-center gap-4">
           <Text className="text-sm text-gray-500">
@@ -87,6 +105,13 @@ const Dashboard = () => {
           textColor="text-red-500"
         />
       </View>
+      <CreateGroupModal
+        visible={showCreateGroupModal}
+        onClose={async () => {
+          await getGroups();
+          setShowCreateGroupModal(false);
+        }}
+      />
     </SafeAreaView>
   );
 };

@@ -20,11 +20,9 @@ const SimplifiedTransactionsModal = ({ visible, data, onClose }) => {
           <FlatList
             data={data}
             renderItem={({ item }) => (
-              <View className={`p-4 mb-2 bg-white rounded-lg shadow`}>
-                <Text
-                  className={`text-lg text-gray-800`}
-                >{`${item.from} pays ₹${item.amount} to ${item.to}`}</Text>
-              </View>
+              <Text
+                className={`text-lg text-gray-800 p-2 mb-2`}
+              >{`${item.from} pays ₹${item.amount} to ${item.to}`}</Text>
             )}
           />
 
