@@ -1,5 +1,4 @@
 const API_ENDPOINT = "https://fairshare-be.onrender.com";
-// const API_ENDPOINT = "http://localhost:5000";
 export const API_REGISTER_ENDPOINT = API_ENDPOINT + "/api/auth/register";
 export const API_LOGIN_ENDPOINT = API_ENDPOINT + "/api/auth/login";
 export const API_FIND_USER_ENDPOINT = API_ENDPOINT + "/api/auth/find-user";

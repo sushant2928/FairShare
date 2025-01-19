@@ -1,13 +1,13 @@
 {
   "expo": {
     "name": "fair-share-fe",
-    "slug": "fair-share-fe",
-    "version": "1.0.0",
+    "slug": "fairshare",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
-    "splash":{
+    "splash": {
       "image": "./assets/images/splash-icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
@@ -19,6 +19,7 @@
       "googleServicesFile": "./GoogleService-Info.plist"
     },
     "android": {
+      "versionCode": 2,
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
@@ -46,6 +47,15 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "9ac25c00-debb-47e6-928f-05f15d46282d"
+      }
+    },
+    "owner": "sushant_bhutani"
   }
 }
